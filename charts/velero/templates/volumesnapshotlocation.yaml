@@ -16,5 +16,8 @@ spec:
 {{- with .Values.configuration.volumeSnapshotLocation.config }}
   config:
 {{ toYaml . | indent 4 }}
+{{- if .incremental }}
+    incremental: {{ .incremental | quote }}
+{{- end }}
 {{- end -}}
 {{- end }}
